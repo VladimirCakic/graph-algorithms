@@ -1,0 +1,37 @@
+DFS(S, C)
+    inicijalizovati: stalak, skup posećenih čvorova, mapu roditelja
+    dodati S na stalak i u skup posećenih čvorova
+    dok još ima elemenata na stalku:
+        izvaditi čvor T sa vrha stalka
+        ako je T == C vratiti mapu roditelja
+        za sve susede čvora T, n, koji se ne nalaze u skupu posećenih čvorova
+            dodati n u skup posećenih čvorova
+            dodati n na stalak
+    //ako izvršenje stigne do ove tačke onda ne postoji put između čvorova S i C
+
+BFS(S, C)
+    inicijalizovati: red, skup posećenih čvorova, mapu roditelja
+    dodati S u red i u skup posećenih čvorova
+    dok još ima elemenata u redu:
+        izvaditi čvor T sa početka reda
+        ako je T == C vratiti mapu roditelja
+        za sve susede čvora T, n, koji se ne nalaze u skupu posećenih čvorova
+            dodati n u skup posećenih čvorova
+            dodati n na kraj reda
+    //ako izvršenje stigne do ove tačke onda ne postoji put između čvorova S i C
+
+Dijkstra(S, C)
+    inicijalizovati: prioritetni red, skup posećenih čvorova,
+                     mapu roditelja, rastojanja na beskonačnost
+    dodati {S, 0} u prioritetni red
+        dok još ima elemenata u prioritetnom redu:
+            izvaditi čvor T sa početka reda
+            ako T nije u skupu posećenih čvorova
+                dodaj T u skup posećenih čvorova
+                ako je T == C vratiti mapu roditelja
+                za sve susede čvora T, n, koji se ne nalaze u skupu posećenih
+                    ako je put kroz T do n kraći:
+                        postaviti T za roditelja n u mapi roditelja
+                        dodati {n, rastojanje} na kraj prioritetnog reda
+    //ako izvršenje stigne do ove tačke onda ne postoji put između čvorova S i C
+
